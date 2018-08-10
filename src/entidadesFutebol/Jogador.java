@@ -47,6 +47,14 @@ public class Jogador {
         this.ativo = false;
     }
 
+    public Jogador(String nome, String cpf, int pos, double valorCompra, boolean ativo) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.pos = posicaoFromInt(pos);
+        this.valorCompra = valorCompra;
+        this.ativo = false;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -61,6 +69,23 @@ public class Jogador {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public posicao posicaoFromInt(int pos) {
+        switch (pos) {
+            case 0:
+                return posicao.GOLEIRO;
+            case 1:
+                return posicao.ZAGUEIRO;
+            case 2:
+                return posicao.LATERAL;
+            case 3:
+                return posicao.MEIA;
+            case 4:
+                return posicao.ATACANTE;
+            default:
+                return posicao.GOLEIRO;
+        }
     }
 
     public posicao getPos() {
